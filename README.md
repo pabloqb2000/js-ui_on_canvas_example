@@ -4,6 +4,7 @@ Here I include an example on how to use the super simple UI I built using <a hre
   - Slider
   - Button
   - ToggleButton
+  - Color picker  
 ## Description of the elements
 #### All elements
 All elements are highlightable and hideable <br/>
@@ -16,6 +17,9 @@ Performs a given action when clicked
 #### ToggleButton
 Button wich can be activated / deactivated
 Performs an action when clicked as well
+#### ColorPicker
+Three sliders to choose a color which is shown next to the sliders
+Color is chosen by HSL
 ## Screenshot
 <img src="imgs/screenshot01.png"></img>
 ## References
