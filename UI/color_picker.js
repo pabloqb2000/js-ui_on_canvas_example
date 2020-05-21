@@ -42,8 +42,7 @@ class ColorPicker extends UiElement {
         rect(this.hueSld.x + this.satSld.getWidth() + this.margins, this.hueSld.y, this.width/2, this.height*3 + this.margins*2, this.width/10);
 
         colorMode(HSL, 1);
-        let color = this.getColor();
-        fill(color[0], color[1], color[2]);
+        fill(this.getColor());
         rect(this.hueSld.x + this.satSld.getWidth() + this.margins + 2, this.hueSld.y + 2, this.width/2 - 4, this.height*3 + this.margins*2 - 4, this.width/10)
 
         colorMode(RGB, 255);
@@ -53,6 +52,7 @@ class ColorPicker extends UiElement {
      * @return an array containing the hsl values of the color
      */
     getColor() {
-        return [this.hueSld.value, this.satSld.value, this.ligSld.value];
+        colorMode(HSL, 1);
+        return color(this.hueSld.value, this.satSld.value, this.ligSld.value);
     }
 }
