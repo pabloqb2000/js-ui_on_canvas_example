@@ -16,4 +16,7 @@ Performs a given action when clicked
 Button wich can be activated / deactivated
 Performs an action when clicked as well
 ## Screenshot
-<img src="imgs/screenshot01.png" >
+<img src="imgs/screenshot01.png"></img>
+## References
+To find more information about the <b>awesome</b> library used for this proyect visit:
+<a href="https://p5js.org/"> https://p5js.org/ </a>
