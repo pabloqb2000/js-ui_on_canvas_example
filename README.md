@@ -15,3 +15,5 @@ Performs a given action when clicked
 #### ToggleButton
 Button wich can be activated / deactivated
 Performs an action when clicked as well
+### Screenshot
+<img src="imgs/screenshot01.png" >
