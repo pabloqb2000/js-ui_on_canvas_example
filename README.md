@@ -7,6 +7,7 @@ Here I include an example on how to use the super simple UI I built using <a hre
 ## Description of the elements
 #### All elements
 All elements are highlightable and hideable
+The UI can auto distribute the elements in a table form
 #### Slider
 Normal slider for choosing a value between to given numbers
 It can show a label, show the actual value and have a discrete step size
