@@ -11,8 +11,9 @@ class UiElement{
      * @param height Height of the element
      * @param draggable True if the element should be updated on mouseDragged
      * @param clickable True if the element should be updated on mouseClicked
+     * @param visible Default visibility
      */
-    constructor(x, y, width, height, draggable, clickable){
+    constructor(x, y, width, height, draggable, clickable, visible=true){
         this.x = x;
         this.y = y;
         this.width = width;
@@ -21,7 +22,7 @@ class UiElement{
         this.clickable = clickable;
 
         this.highlighted = false;
-        this.visible = true;
+        this.visible = visible;
 
         UI.addElement(this);
     }
@@ -38,6 +39,13 @@ class UiElement{
      */
     getHeight() {
         return this.height;
+    }
+
+    /**
+     * Draws empty element
+     */
+    draw() {
+
     }
 
     /**
