@@ -1,5 +1,5 @@
 # js-ui_on_canvas_example
-Here I include an example on how to use the super simple UI I built using p5.js. I also use this as default proyect.
+Here I include an example on how to use the super simple UI I built using <a href="https://p5js.org/">p5.js</a>. I also use this as default proyect.
 ## Contents of the UI
   - Slider
   - Button
