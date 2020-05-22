@@ -19,7 +19,8 @@ function draw() {
 	background(sld.value);
 	UI.update();
 	UI.draw();
-	translate(width/2, height/2);
+	translate(width/2 + width/12, height/2);
+	scale(1,-1);
 }
 
 function resetValue() {
