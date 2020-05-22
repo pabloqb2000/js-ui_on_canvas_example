@@ -7,15 +7,19 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 	background(32);
 
+	console.log(height, width);
+
 	// Create UI elements
 	sld = new Slider(start=0, end=255, value=32, 0, 0, width/12, height/60, null, "Background");
-	btn = new Button(x=0, y=0, width=width/12, height=height/30, "Reset", resetValue);
+	btn = new Button(x=0, y=0, width/12, height/30, "Reset", resetValue);
+	
+	console.log(height, width);
 	tggl = new ToggleButton(0,0,width/12,height/30,"Discrete", discretice);
 	cPicker = new ColorPicker(0,0, width/12, height/60);
 
 	// Start UI
 	UI.tableWidth = 1;
-	UI.tableHeight = 6;
+	UI.tableHeight = 100;
 	UI.distrubute();
 }
 
