@@ -1,7 +1,7 @@
 # js-ui_on_canvas_example
 Here I include an example on how to use the super simple UI I built using <a href="https://p5js.org/">p5.js</a>. I also use this as default proyect.
 ## URL
-This is a template proyect so I don't have it hosted by github pages, but you can checkout this other proyect at <a href="https://pabloqb2000.github.io/js-recursive_tree_drawing/">this link</a>.
+This proyect is hosted by github pages at <a href="https://pabloqb2000.github.io/js-recursive_tree_drawing/">this link</a>.
 ## Contents of the UI
   - Slider
   - Button
