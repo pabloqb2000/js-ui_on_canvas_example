@@ -1,7 +1,5 @@
-let sld;
-let btn;
-let tggl;
-let cPicker;
+let sld, btn, tggl, cPicker;
+let circle, rectangle;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -14,6 +12,10 @@ function setup() {
 	tggl = new ToggleButton(0,0,width/12,height/30,"Discrete", discretice);
 	cPicker = new ColorPicker(0,0, width/12, height/60);
 
+	// Add two draggable elements
+	circle = new DragCircle(createVector(width/2 + 40, height/2 + 40), 20);
+	rectangle = new DragRect(createVector(width/2 - 40, height/2 - 40), 40, 40);
+
 	// Start UI
 	UI.tableWidth = 1;
 	UI.tableHeight = 100;
@@ -21,10 +23,12 @@ function setup() {
 }
 
 function draw() {
-	// Draw UI
+	// Draw UI and draggable elements
 	background(sld.value);
 	UI.update();
 	UI.draw();
+	Drag.update();
+	Drag.draw();
 
 	
 	translate(width/2 + width/12, height/2);
@@ -41,10 +45,12 @@ function discretice() {
 
 function mouseDragged() {
 	UI.mouseDragged();
+	Drag.mouseDragged();
 }
 
 function mousePressed() {
 	UI.mouseClicked();
+	Drag.mouseClicked();
 }
 
 // function keyPressed() {
