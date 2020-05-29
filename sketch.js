@@ -31,7 +31,7 @@ function draw() {
 	Drag.draw();
 
 	
-	translate(width/2 + width/12, height/2);
+	translate(13/24*width, height/2);
 	scale(1,-1);
 }
 
