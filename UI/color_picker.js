@@ -52,8 +52,7 @@ class ColorPicker extends UiElement {
      * @param x 
      * @param y
      */
-    setPos(x, y) {
-        console.log("fa");
+    setPos(x, y) { 
         this.x = x;
         this.y = y;
         this.input.style.left = this.x.toString() + "px";
@@ -79,7 +78,7 @@ class ColorPicker extends UiElement {
      * @return the color choosen in this color picker
      */
     getColor() {
-        return this.input.value;
+        return color(this.input.value);
     }
 
     /**
