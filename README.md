@@ -20,8 +20,7 @@ Performs a given action when clicked
 Button wich can be activated / deactivated
 Performs an action when clicked as well
 #### ColorPicker
-Three sliders to choose a color which is shown next to the sliders
-Color is chosen by HSL
+One button wich pops up a color picker window
 ## Screenshot
 <img src="imgs/screenshot01.png"></img>
 ## References
