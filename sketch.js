@@ -10,7 +10,7 @@ function setup() {
 	btn = new Button(x=0, y=0, width/12, height/30, "Reset", resetValue);
 	
 	tggl = new ToggleButton(0,0,width/12,height/30,"Discrete", discretice);
-	cPicker = new ColorPicker(0,0, width/12, height/60);
+	cPicker = new ColorPicker(0,0, width/12, height/30, null, "Color 1");
 
 	// Add two draggable elements
 	circle = new DragCircle(createVector(width/2 + 40, height/2 + 40), 20);
