@@ -99,15 +99,14 @@ class Slider extends UiElement{
      * if so updates the slider
      */
     dragged(){
-        if(this.mouseIsOver()) {
-            let oldValue = this.value;
-            this.value = (mouseX - this.x)/this.width * (this.end - this.start) + this.start;
-            if(this.step != null) {
-                this.value = round(this.value / this.step)*this.step;
-            }
-            if(this.value != oldValue && this.action != null)
-                this.action();
+        let oldValue = this.value;
+        this.value = (mouseX - this.x)/this.width * (this.end - this.start) + this.start;
+        this.value = max(this.start, min(this.value, this.end));
+        if(this.step != null) {
+            this.value = round(this.value / this.step)*this.step;
         }
+        if(this.value != oldValue && this.action != null)
+            this.action();
     }
 
     /**

@@ -8,6 +8,7 @@ class UI{
     static tableHeight = 0;
     static widthMargin = 20;
     static heightMargin = 20;
+    static selected = null;
 
     /**
      * Adds the element to the UI 
@@ -82,16 +83,15 @@ class UI{
      * Update all draggable the elements
      */
     static mouseDragged() {
-        for(let e of this.elements) {
-            if(e.draggable)
-                e.dragged();
+        if(UI.selected != null) {
+            UI.selected.dragged();
         }
     }
 
     /**
      * Update all the clickable elements
      */
-    static mouseClicked() {
+    static mousePressed() {
         for(let e of this.elements) {
             if(e.clickable)
                 e.clicked();
@@ -103,5 +103,18 @@ class UI{
             if(e.wheelable)
                 e.wheel(event);
         }
+    }
+
+    static mouseClicked() {
+        for(let e of this.elements) {
+            if(e.draggable && e.mouseIsOver()){
+                UI.selected = e;
+                break;
+            }
+        }
+    }
+
+    static mouseReleased() {
+        UI.selected = null;
     }
 }
