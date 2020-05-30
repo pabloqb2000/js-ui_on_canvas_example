@@ -5,11 +5,11 @@ function mouseDragged() {
 
 function mousePressed() {
 	UI.mousePressed();
-	Drag.mouseClicked();
 }
 
 function mouseClicked() {
     UI.mouseClicked();
+	Drag.mouseClicked();
 }
 
 function mouseReleased() {

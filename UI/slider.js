@@ -84,7 +84,8 @@ class Slider extends UiElement{
      * Action performed when the slider is clicked
      */
     clicked() {
-        this.dragged();
+        if(this.mouseIsOver())
+            this.dragged();
     }
 
     /**

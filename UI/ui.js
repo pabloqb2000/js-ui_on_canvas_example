@@ -89,15 +89,22 @@ class UI{
     }
 
     /**
-     * Update all the clickable elements
+     * When mouse is down select an element
      */
     static mousePressed() {
         for(let e of this.elements) {
-            if(e.clickable)
-                e.clicked();
+            if(e.draggable && e.mouseIsOver()){
+                UI.selected = e;
+                return;
+            }
         }
     }
 
+    /**
+     * Update the wheelable elements
+     * 
+     * @param event Wheel event
+     */
     static mouseWheel(event) {
         for(let e of this.elements) {
             if(e.wheelable)
@@ -105,13 +112,15 @@ class UI{
         }
     }
 
+    /**
+     * Update all the clickable elements
+     */
     static mouseClicked() {
+        UI.selected = null;
         for(let e of this.elements) {
-            if(e.draggable && e.mouseIsOver()){
-                UI.selected = e;
-                break;
-            }
-        }
+            if(e.clickable)
+                e.clicked();
+        }        
     }
 
     static mouseReleased() {
