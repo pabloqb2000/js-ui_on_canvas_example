@@ -5,6 +5,7 @@ function mouseDragged() {
 
 function mousePressed() {
 	UI.mousePressed();
+	Drag.mousePressed();
 }
 
 function mouseClicked() {
@@ -14,6 +15,7 @@ function mouseClicked() {
 
 function mouseReleased() {
     UI.mouseReleased();
+	Drag.mouseReleased();
 }
 
 function mouseWheel(event) {

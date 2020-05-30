@@ -80,23 +80,11 @@ class UI{
     }
 
     /**
-     * Update all draggable the elements
+     * Update the selected
      */
     static mouseDragged() {
         if(UI.selected != null) {
             UI.selected.dragged();
-        }
-    }
-
-    /**
-     * When mouse is down select an element
-     */
-    static mousePressed() {
-        for(let e of this.elements) {
-            if(e.draggable && e.mouseIsOver()){
-                UI.selected = e;
-                return;
-            }
         }
     }
 
@@ -113,6 +101,18 @@ class UI{
     }
 
     /**
+     * When mouse is down select an element
+     */
+    static mousePressed() {
+        for(let e of this.elements) {
+            if(e.draggable && e.mouseIsOver()){
+                UI.selected = e;
+                return;
+            }
+        }
+    }
+
+    /**
      * Update all the clickable elements
      */
     static mouseClicked() {
@@ -123,6 +123,9 @@ class UI{
         }        
     }
 
+    /**
+     * When mouse is released deselect the element
+     */
     static mouseReleased() {
         UI.selected = null;
     }
