@@ -53,6 +53,10 @@ function mousePressed() {
 	Drag.mouseClicked();
 }
 
+function mouseWheel(event) {
+	UI.mouseWheel(event);
+}
+
 // function keyPressed() {
 //   if(keyCode === 83){
 //

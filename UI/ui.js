@@ -97,4 +97,11 @@ class UI{
                 e.clicked();
         }
     }
+
+    static mouseWheel(event) {
+        for(let e of this.elements) {
+            if(e.wheelable)
+                e.wheel(event);
+        }
+    }
 }

@@ -23,7 +23,7 @@ class Slider extends UiElement{
      */
     constructor(start=0, end=1, value=0.5, x=20, y=20, width=100, height=10, step=null, text="",
                 showVal=true, decimals=1, action=null){
-        super(x,y,width,height, true, true);
+        super(x,y,width,height, true, true, true);
 
         this.start = start;
         this.end = end;
@@ -107,6 +107,16 @@ class Slider extends UiElement{
             }
             if(this.value != oldValue && this.action != null)
                 this.action();
+        }
+    }
+
+    /**
+     * Response to the mouseWheel event
+     */
+    wheel(event) {
+        if(this.mouseIsOver()) {
+            this.value += event.delta/3000*(this.end - this.start);
+            this.value = max(this.start, min(this.end, this.value));
         }
     }
 }
