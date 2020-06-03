@@ -101,6 +101,89 @@ class Matrix {
     }
 
     /**
+     * Returns an x vector wich satisfies A*x = v
+     * (where A is this matrix)
+     * Aplies gauss algorithm with pivoting
+     * 
+     * NOTE:
+     * System must be solvable!!
+     * 
+     * @param v Vector
+     */
+    solve(v) {
+        let Ab = this.copy();
+        Ab.data.forEach((r, i) => r.push(v.get(i)));
+        Ab.cols += 1;
+        Ab.echelonize();
+
+        return new Vector(Ab.col(Ab.cols - 1));
+    }
+
+    /**
+     * Applies Gauss elimination with pivoting to
+     * take this matrix to it's echelon form
+     * @param toDiagonal 
+     *      if set to true keeps the algorithm to make it a matrixs with 1s in the diagonal
+     *      if not keeps the matrix in it's triangular form
+     */
+    echelonize(toDiagonal=true) {
+        // Make it a triangular matrix
+        for(let i = 0; i < this.rows - 1; i++) {
+            // Find pivot
+            let pV = -1; // Pivot value
+            let pI = -1; // Pivot index
+            for(let k = i; k < this.rows; k++) {
+                if(abs(this.get(k,i)) > pV){
+                    pV = abs(this.get(k,i));
+                    pI = k;
+                }
+            }
+            // Swap rows
+            let temp = this.row(i);
+            this.data[i] = this.row(pI);
+            this.data[pI] = temp;
+
+            for(let j = i+1; j < this.rows; j++) {
+                let a = this.get(j, i) / this.get(i,i);
+                this.data[j] = this.data[j].map((e, k) => k >= i ? e - a*this.get(i, k) : 0);
+            }
+        }
+
+        if(toDiagonal) {
+            // Make it have all 1s in the diagonal
+            for(let i = this.rows - 1; i >= 0; i--) {
+                this.data[i] = this.data[i].map(e => e/this.get(i,i));
+                for(let j = i+1; j < this.rows; j++) {
+                    let a = this.get(i, j);
+                    for(let k = j; k < this.cols; k++) {
+                        this.data[i][k] -= a * this.get(j, k);
+                    }
+                }
+            }
+        }
+
+        return this;
+    }
+
+    /**
+     * Returns the inverse of this matrix
+     * This matrix should be square and have an inverse
+     */
+    inverse() {
+        if(this.rows != this.cols) {
+            console.log("Matrix is not square");
+            return;
+        }
+
+        let AI = Matrix.fromDimensions(this.rows, this.cols*2);
+        AI.map((_, i, j) => j < this.cols ? this.get(i, j) : (j - this.cols == i ? 1 : 0));
+
+        AI.echelonize();
+
+        return new Matrix(AI.data.map(r => r.splice(this.cols)));
+    }
+
+    /**
      * Multiplies this matris by the given scalar
      * 
      * @param n scalar 
@@ -298,7 +381,7 @@ class Matrix {
      * Creates a copy of this matrix
      */
     copy() {
-        return new Matrix(this.data.copy().map(r => r.copy()));
+        return Matrix.fromDimensions(this.rows, this.cols).map((_,i,j) => this.get(i,j));
     }
 
     /**
