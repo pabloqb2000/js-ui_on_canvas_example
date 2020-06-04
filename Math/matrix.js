@@ -22,6 +22,23 @@ class Matrix {
     }
 
     /**
+     * Creates square a matrix given it's diagonal
+     * 
+     * @param diag
+     */
+    static diag(diag) {
+        return Matrix.fromDimensions(diag.length, diag.length)
+            .map((e,i,j) => i==j ? diag[i] : e);
+    }
+
+    /**
+     * Returns the diagonal of the matrix
+     */
+    diag() {
+        return this.data.map((r, i) => r[i]);
+    }
+
+    /**
      * Constructs a matrixs full of 0s of the given dimensions
      * if cols is 0 then the matrix will be square
      * 
