@@ -277,7 +277,7 @@ class Matrix {
     
     /**
      * Return a new matrix wich is the result of applying
-     * the given functio to the given matrix
+     * the given function to the given matrix
      * 
      * Function should be of type f(value, i, j)
      * where value is the value of the element
@@ -288,7 +288,7 @@ class Matrix {
      */
     static map(matrix, func) {
         return Matrix.fromDimensions(matrix.rows, matrix.cols)
-            .map((e, i, j) => func(matrix.data[i][j], i, j));
+            .map((_, i, j) => func(matrix.data[i][j], i, j));
     }
 
     /**
@@ -327,7 +327,7 @@ class Matrix {
      */
     static biMap(A, B, func) {
         return Matrix.fromDimensions(A.rows, A.cols)
-            .map((e,i,j) => func(A.data[i][j], B.data[i][j], i, j));
+            .map((_,i,j) => func(A.data[i][j], B.data[i][j], i, j));
     }
 
     /**
@@ -375,6 +375,15 @@ class Matrix {
      */
     toArray() {
         return this.data;
+    }
+
+    /**
+     * If one of the dimensions is 1 creates a vector from this matrix
+     */
+    toVector() {
+        if(this.rows != 1 && this.cols != 1)
+            return;
+        return new Vector(this.cols == 1 ? new Vector(this.col(0)) : new Vector(this.row(0)))
     }
 
     /**
