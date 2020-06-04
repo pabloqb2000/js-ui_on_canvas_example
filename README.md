@@ -17,8 +17,9 @@ All elements are highlightable and hideable <br/>
 The UI can auto distribute the elements in a table form. <br/>
 Most elements can perform an action when their state changes
 #### Slider
-Normal slider for choosing a value between to given numbers
-It can show a label, show the actual value and have a discrete step size
+Normal slider for choosing a value between to given numbers<br/>
+It can show a label, show the actual value and have a discrete step size<br/>
+The value can be changed by dragging the slider or using the mouse wheel over the slider
 #### Button
 Performs a given action when clicked
 #### ToggleButton
