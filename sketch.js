@@ -2,7 +2,7 @@ let sld, btn, tggl, cPicker, optBox;
 let circle, rectangle;
 
 function setup() {
-	createCanvas(windowWidth, windowHeight+5);
+	createCanvas(windowWidth, windowHeight);
 	background(32);
 
 	// Create UI elements
