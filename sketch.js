@@ -2,7 +2,7 @@ let sld, btn, tggl, cPicker, optBox;
 let circle, rectangle;
 
 function setup() {
-	textFont("Sarpanch");
+	textFont("Orbitron");
 	createCanvas(windowWidth, windowHeight);
 	background(32);
 
