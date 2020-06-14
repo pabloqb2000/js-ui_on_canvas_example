@@ -1,4 +1,4 @@
-let sld, btn, tggl, cPicker, optBox;
+let sld, btn, tggl, cPicker, txtInpt, optBox;
 let circle, rectangle;
 
 function setup() {
@@ -12,9 +12,10 @@ function setup() {
 	
 	tggl = new ToggleButton(0,0,width/12,height/30,"Discrete", discretice);
 	cPicker = new ColorPicker(0,0, width/12, height/30, null, "Color 1");
-
+	
+	txtInpt = new TextInput(16, "Enter text", 0,0, height/25);
 	optBox = new OptionsBox(["Option1", "Option2", "Option3"], 20, () => console.log("Option changed"));
-
+	
 	// Add two draggable elements
 	circle = new DragCircle(createVector(width/2 + 40, height/2 + 40), 20);
 	rectangle = new DragRect(createVector(width/2 - 40, height/2 - 40), 40, 40);
